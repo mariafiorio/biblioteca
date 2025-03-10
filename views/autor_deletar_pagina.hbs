@@ -1,0 +1,38 @@
+<!DOCTYPE html>  
+<html>
+<head>
+    <title>autor_deletar_pagina</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+</head>
+
+<body>
+ 
+<a href="http://localhost:3000" target="_self" rel="nofollow">Página inicial</a>    
+<h1>{{titulo}}</h1>
+<br/>
+    {{#each detalhes}}
+        <div>
+            <ul> 
+                <form action="/autor/deletar" method="post">
+                    <p style="color: blue;"><strong>Autor:</strong></p> 
+                    <li>
+                        <label for="primeiro_nome">idAutor</label>
+                        <input style="width: 200px; border: none; box-shadow: none; outline: none;" 
+                               readonly="readonly"
+                               type="text" name="idAutor" value="{{this._id}}"/></p>
+
+                        <p><strong>Primeiro Nome: </strong>{{this.primeiro_nome}}</p> 
+                        <p><strong>Familia Nome: </strong>{{this.familia_nome}}</p> 
+                        <p><strong>Data de Nascimento: </strong>{{this.data_de_nascimento}}</p> 
+                    </li>
+                    <button type="submit">Deletar</button> 
+                </form>
+            </ul>    
+        </div>
+       <hr/ style="border: 1px solid red;">
+    {{/each}}
+
+</body>
+</html>
+ 

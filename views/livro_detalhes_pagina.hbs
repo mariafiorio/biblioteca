@@ -1,0 +1,84 @@
+<!DOCTYPE html>  
+<html>
+<head>
+    <title>livro_detalhes_pagina</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+
+</head>
+
+<body>
+
+<a href="http://localhost:3000" target="_self" rel="nofollow">Página inicial</a>    
+<h1>{{titulo}}</h1>
+<br/> 
+
+    {{#if listaExiste}}
+    {{#each detalhes}}
+        <div>
+            <ul> <p style="color: blue;"><strong>Livro:</strong></p>
+                <li>
+                    <p><strong>idLivro: </strong>{{this._id}}</p> 
+                    <p><strong>titulo: </strong>{{this.titulo}}</p> 
+                    <p><strong>sumario: </strong>{{this.sumario}}</p> 
+                    <p><strong>isbn: </strong>{{this.isbn}}</p> 
+                </li>
+                <li>
+                    <ul> <p style="color: blue;"><strong>Autor:</strong></p>
+                        <li>
+                            <p><strong>idAutor: </strong>{{this.autor._id}}</p> 
+                            <p><strong>primeiro_nome: </strong>{{this.autor.primeiro_nome}}</p> 
+                            <p><strong>familia_nome: </strong>{{this.autor.familia_nome}}</p> 
+                            <p><strong>data_de_nascimento: </strong>{{this.autor.data_de_nascimento}}</p> 
+                        </li>
+                    </ul>            
+                </li>
+                <li>
+                    <ul> <p style="color: blue;"><strong>Gêneros:</strong></p>
+                        {{#each this.generos}}
+                        <li>
+                            <p><strong>idGenero: </strong>{{this._id}}</p> 
+                            <p><strong>tipo_genero: </strong>{{this.tipo_genero}}</p> 
+                        </li>
+                        {{/each}}
+                    </ul>            
+                </li>                         
+            </ul>    
+        </div>
+       <hr/ style="border: 1px solid red;">
+    {{/each}}
+    {{else}}      
+        <div>
+            <ul> <p style="color: blue;"><strong>Livro:</strong></p>
+                <li>
+                    <p><strong>idLivro: </strong>{{detalhes._id}}</p> 
+                    <p><strong>titulo: </strong>{{detalhes.titulo}}</p> 
+                    <p><strong>sumario: </strong>{{detalhes.sumario}}</p> 
+                    <p><strong>isbn: </strong>{{detalhes.isbn}}</p> 
+                </li>
+                <li>
+                    <ul> <p style="color: blue;"><strong>Autor:</strong></p>
+                        <li>
+                            <p><strong>idAutor: </strong>{{detalhes.autor._id}}</p> 
+                            <p><strong>primeiro_nome: </strong>{{detalhes.autor.primeiro_nome}}</p> 
+                            <p><strong>familia_nome: </strong>{{detalhes.autor.familia_nome}}</p> 
+                            <p><strong>data_de_nascimento: </strong>{{detalhes.autor.data_de_nascimento}}</p> 
+                        </li>
+                    </ul>            
+                </li>
+                <li>
+                    <ul> <p style="color: blue;"><strong>Gêneros:</strong></p>
+                        {{#each detalhes.generos}}
+                        <li>
+                            <p><strong>idAutor: </strong>{{this._id}}</p> 
+                            <p><strong>tipo_genero: </strong>{{this.tipo_genero}}</p> 
+                        </li>
+                        {{/each}}
+                    </ul>            
+                </li>                         
+            </ul>    
+        </div>
+    {{/if}}    
+
+</body>
+</html> 

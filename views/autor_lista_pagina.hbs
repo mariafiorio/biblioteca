@@ -1,0 +1,30 @@
+<!DOCTYPE html>  
+<html>
+<head>
+    <title>autor_lista_pagina</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+
+</head>
+<body>
+
+<a href="http://localhost:3000" target="_self" rel="nofollow">Página inicial</a>
+<h1>{{titulo}}</h1>
+<br/>
+
+<ul>
+    {{#if listaExiste}} 
+        {{#each lista}}
+            <li >{{this.primeiro_nome}}</li>
+            <li >{{this.familia_nome}}</li>
+            <li >{{dateFormat this.data_de_nascimento "dddd MMM YYYY Do"}}</li> <br/> 
+        {{/each}}
+    {{else}}
+        <li >{{lista.primeiro_nome}}</li>
+        <li >{{lista.familia_nome}}</li>
+        <li >{{dateFormat lista.data_de_nascimento "dddd MMM YYYY Do"}}</li> <br/> 
+    {{/if}}
+</ul>
+</body>
+
+</html>  
